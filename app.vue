@@ -1,9 +1,6 @@
 <template>
-  <nav>
-    <ul>
-      <li>Logo</li>
-      <li>Github</li>
-    </ul>
-  </nav>
-  <nuxt-page></nuxt-page>
+  <div class='mx-4'>
+    <navigation></navigation>
+    <nuxt-page></nuxt-page>
+  </div>
 </template>
