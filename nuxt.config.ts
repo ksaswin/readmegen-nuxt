@@ -8,5 +8,5 @@ export default defineNuxtConfig({
     preference: 'light'
   },
 
-  modules: ['@nuxt/ui']
+  modules: ['@nuxt/ui', 'nuxt-monaco-editor']
 })
