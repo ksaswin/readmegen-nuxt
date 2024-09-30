@@ -2,11 +2,11 @@
   <nav class='flex justify-between items-center p-4'>
     <div class='flex flex-col items-center'>
       <span>Logo</span>
-      <p class='text-xs'>
+      <small class='text-xs'>
         A
         <a href='https://readme.so' target='_blank'>readme.so</a>
         clone
-      </p>
+      </small>
     </div>
     <div class='flex items-center content-center gap-8'>
       <u-toggle
