@@ -1,0 +1,9 @@
+<template>
+  <nav>
+    <ul>
+      <li>Logo</li>
+      <li>Github</li>
+    </ul>
+  </nav>
+  <nuxt-page></nuxt-page>
+</template>
