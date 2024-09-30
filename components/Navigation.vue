@@ -1,7 +1,7 @@
 <template>
   <nav class='flex justify-between items-center p-4'>
     <div class='flex flex-col items-center'>
-      <span>Logo</span>
+      <u-icon name='i-mdi-language-markdown-outline' class='w-10 h-10'></u-icon>
       <small class='text-xs'>
         A
         <a href='https://readme.so' target='_blank'>readme.so</a>
