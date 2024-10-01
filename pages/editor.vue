@@ -1,5 +1,5 @@
 <template>
-  <div class='w-full h-screen flex gap-3'>
+  <div class='w-full h-[86vh] flex gap-3 mt-2 px-4'>
     <editor-sections></editor-sections>
     <editor-markdown></editor-markdown>
     <editor-preview></editor-preview>
@@ -9,6 +9,6 @@
 <style>
 .section-header {
   /* FIXME: Update section header color */
-  @apply text-sm text-red-300 mb-2;
+  @apply h-8 text-sm font-bold text-[#5C5F77] dark:text-[#BAC2DE];
 }
 </style>

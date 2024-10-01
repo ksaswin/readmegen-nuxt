@@ -1,6 +1,6 @@
 <template>
   <div class='flex-1'>
-    <h5 class='section-header'>Editor</h5>
+    <h5 class='section-header flex items-center'>Editor</h5>
     <client-only>
       <monaco-editor v-model='rawContent' lang='markdown' :options='editorOptions' aria-label='Markdown Monaco Editor' class='h-full'></monaco-editor>
       

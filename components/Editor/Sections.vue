@@ -1,6 +1,14 @@
 <template>
   <div class='flex-0'>
-    <h5 class='section-header'>Sections</h5>
+    <div class='flex justify-between items-center'>
+      <h5 class='section-header h-full'>Sections</h5>
+      <u-button
+        variant='ghost'
+        icon='i-mdi-restore'
+      >
+        Reset
+      </u-button>
+    </div>
     <div>
       <small>Click on an icon below to add the tempate</small>
       <ul class='flex justify-between'>
