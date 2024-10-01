@@ -2,8 +2,8 @@
   <div class='w-full flex-1'>
     <div class='w-full flex justify-between items-center'>
       <h5 class='section-header flex gap-8 items-center'>
-        <span>Preview</span>
-        <span>Raw</span>
+        <span :class='{ selected: selectedPreviewType === "PREVIEW" }' @click='selectedPreviewType = "PREVIEW"'>Preview</span>
+        <span :class='{ selected: selectedPreviewType === "RAW" }' @click='selectedPreviewType = "RAW"'>Raw</span>
       </h5>
 
       <div class='flex gap-4'>
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class='h-full border-2 rounded-md border-[#313244] dark:border-[#CCD0DA]'>
+    <div class='h-full py-2 px-4 border-2 rounded-md border-[#313244] dark:border-[#CCD0DA]'>
       Rendered text
     </div>
   </div>
@@ -30,6 +30,8 @@ interface PreviewAction {
   icon: string;
   tooltipText: string;
 }
+
+type PreviewType = 'PREVIEW' | 'RAW';
 
 const previewActions: Array<PreviewAction> = [
   {
@@ -44,8 +46,16 @@ const previewActions: Array<PreviewAction> = [
   },
 ];
 
+const selectedPreviewType = ref<PreviewType>('PREVIEW');
+
 function handlePreviewAction(actionId: string): void {
   console.info('Action triggered:', actionId);
   console.warn('Action handler function not implemented');
 }
 </script>
+
+<style scoped>
+.selected {
+  @apply text-[#04A5E5] dark:text-[#89DCEB];
+}
+</style>
