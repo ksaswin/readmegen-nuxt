@@ -13,6 +13,10 @@ export default defineNuxtConfig({
 
   modules: ['@nuxt/ui', 'nuxt-monaco-editor', '@pinia/nuxt'],
 
+  pinia: {
+    storesDirs: [ './stores/**' ],
+  },
+
   alias: {
     // NOTE: npm caused an error after pinia installation.
     // Issue tracked here: https://github.com/vuejs/pinia/issues/1542
