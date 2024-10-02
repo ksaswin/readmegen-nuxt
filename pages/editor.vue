@@ -6,6 +6,14 @@
   </div>
 </template>
 
+<script setup lang='ts'>
+const store = useEditorStore();
+
+onMounted(() => {
+  store.restoreState();
+});
+</script>
+
 <style>
 .section-header {
   /* FIXME: Update section header color */
