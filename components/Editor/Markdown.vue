@@ -2,7 +2,14 @@
   <div class='flex-1'>
     <h5 class='section-header flex items-center'>Editor</h5>
     <client-only>
-      <monaco-editor v-model='rawContent' lang='markdown' :options='editorOptions' aria-label='Markdown Monaco Editor' class='h-full'></monaco-editor>
+      <monaco-editor
+        aria-label='Markdown Monaco Editor'
+        class='h-full'
+        lang='markdown'
+        v-model='editorStore.editingSection.markdown'
+        :options='editorOptions'
+      >
+      </monaco-editor>
       
       <template #fallback>
         <div>
@@ -29,4 +36,6 @@ const editorOptions = {
   wordWrap: true,
   theme: 'vs-dark',
 };
+
+const editorStore = useEditorStore();
 </script>
