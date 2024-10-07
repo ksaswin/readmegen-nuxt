@@ -25,6 +25,25 @@ export const useEditorStore = defineStore('editor', {
       return slug === this.editingSection?.slug;
     },
 
+    setEditingSection(slug: string): void {
+      const sectionIndex = this.selectedSections.findIndex((section: Section) => section.slug === slug);
+
+      if (sectionIndex == undefined) {
+        console.error('[editorStore] [setEditingSection] Could not find slug in selectedSections');
+      }
+
+      this.editingSection = this.selectedSections[sectionIndex];
+    },
+
+    restoreSectionMarkdown(slug: string): void {
+      const originalSection = sections.find((s) => s.slug === slug);
+
+      const index = this.selectedSections.findIndex((s) => s.slug === slug);
+
+      this.selectedSections[index] = { ...originalSection };
+      this.editingSection = this.selectedSections[index];
+    },
+
     restoreState(): void {
       const allSections = sections.filter((s) => s.slug !== DEFAULT_SELECTION_SLUG);
       this.availableSections = allSections.map((s) => ({ ...s }));
@@ -34,7 +53,7 @@ export const useEditorStore = defineStore('editor', {
       this.selectedSections = [];
       this.selectedSections.push({ ...defaultSection });
 
-      this.editingSection = { ...defaultSection };
+      this.editingSection = this.selectedSections[0];
     },
   },
 });
