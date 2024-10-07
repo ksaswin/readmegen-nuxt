@@ -1,11 +1,11 @@
 <template>
-  <button class='card flex justify-between items-center' :class='{ selected: isSelected }'>
+  <button class='card flex justify-between items-center' :class='{ selected: isSelected }' @click='emit("selected", slug)'>
     <p>{{ cardHeader }}</p>
 
     <div v-if='showActions'>
-      <u-button variant='ghost' icon='i-mdi-restore'></u-button>
+      <u-button variant='ghost' icon='i-mdi-restore' @click.stop='emit("restore", slug)'></u-button>
 
-      <u-button variant='ghost' icon='i-mdi-delete-outline'></u-button>
+      <u-button variant='ghost' icon='i-mdi-delete-outline' @click.stop='emit("remove", slug)'></u-button>
     </div>
   </button>
 </template>
@@ -18,7 +18,15 @@ export interface Props {
   isSelected?: boolean;
 }
 
+export interface Emits {
+  (e: 'selected', slug: string): void;
+  (e: 'restore', slug: string): void;
+  (e: 'remove', slug: string): void;
+}
+
 defineProps<Props>();
+
+const emit = defineEmits<Emits>();
 </script>
 
 <style scoped>

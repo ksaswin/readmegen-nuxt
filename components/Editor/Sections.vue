@@ -27,6 +27,9 @@
                 card-header='Title & Description'
                 :is-selected='editorStore.isEditingSection(section.slug)'
                 :slug='section.slug'
+                @selected='(slug) => editorStore.setEditingSection(slug)'
+                @restore='(slug) => editorStore.restoreSectionMarkdown(slug)'
+                @remove='(slug) => console.log("Trying to remove", slug)'
               >
               </editor-section-card>
             </li>
