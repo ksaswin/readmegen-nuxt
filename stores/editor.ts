@@ -17,8 +17,23 @@ export const useEditorStore = defineStore('editor', {
   }),
 
   actions: {
-    addSectionToSelected(section: Section): void {
-      this.selectedSections.push(section);
+    addSectionToSelected(slug: string): void {
+      const index = this.availableSections.findIndex((section) => section.slug === slug);
+      this.selectedSections.push(this.availableSections[index]);
+
+      this.availableSections.splice(index, 1);
+
+      const lastAddedSectionIndex = this.selectedSections.length - 1;
+      this.editingSection = this.selectedSections[lastAddedSectionIndex];
+    },
+
+    removeSectionFromSelected(slug: string): void {
+      const index = this.selectedSections.findIndex((section) => section.slug === slug);
+      this.availableSections.push(this.selectedSections[index]);
+
+      this.selectedSections.splice(index, 1);
+
+      this.editingSection = null;
     },
 
     isEditingSection(slug: string): boolean {
