@@ -3,6 +3,7 @@
     <h5 class='section-header flex items-center'>Editor</h5>
     <client-only>
       <monaco-editor
+        v-if='editorStore.editingSection'
         aria-label='Markdown Monaco Editor'
         class='h-full'
         lang='markdown'
@@ -10,6 +11,8 @@
         :options='editorOptions'
       >
       </monaco-editor>
+
+      <p v-else class='font-bold flex justify-center mt-4'>Select a section from the left sidebar to edit the contents</p>
       
       <template #fallback>
         <div>
