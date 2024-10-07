@@ -24,12 +24,12 @@
             <li v-for='section in editorStore.selectedSections' :key='`sel-${section.slug}`'>
               <editor-section-card
                 show-actions
-                card-header='Title & Description'
+                :card-header='section.name'
                 :is-selected='editorStore.isEditingSection(section.slug)'
                 :slug='section.slug'
                 @selected='(slug) => editorStore.setEditingSection(slug)'
                 @restore='(slug) => editorStore.restoreSectionMarkdown(slug)'
-                @remove='(slug) => console.log("Trying to remove", slug)'
+                @remove='(slug) => editorStore.removeSectionFromSelected(slug)'
               >
               </editor-section-card>
             </li>
@@ -41,7 +41,12 @@
         <small>Click on a section below to add it to your readme</small>
         <ul>
           <li v-for='section in editorStore.availableSections' :key='`avl-${section.slug}`'>
-            <editor-section-card :card-header='section.name' :slug='section.slug'></editor-section-card>
+            <editor-section-card
+              :card-header='section.name'
+              :slug='section.slug'
+              @selected='(slug) => editorStore.addSectionToSelected(slug)'
+            >
+            </editor-section-card>
           </li>
         </ul>
       </div>
