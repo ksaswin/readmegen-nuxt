@@ -71,4 +71,14 @@ export const useEditorStore = defineStore('editor', {
       this.editingSection = this.selectedSections[0];
     },
   },
+
+  getters: {
+    allEditedRawContent: (state: State): string => {
+      return state.selectedSections.reduce((content, section) => {
+        content += section.markdown;
+
+        return content;
+      }, '');
+    }
+  },
 });
