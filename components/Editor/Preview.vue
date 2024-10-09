@@ -28,8 +28,9 @@
     <textarea
       v-else
       disable
-      class='preview-border h-full w-full py-2 px-4 border-2 rounded-md resize-none'
-    > {{ editorStore.allEditedRawContent }}
+      class='preview-border h-full w-full py-2 px-4 border-2 rounded-md resize-none bg-transparent'
+    >
+      {{ editorStore.allEditedRawContent }}
     </textarea>
   </div>
 </template>
