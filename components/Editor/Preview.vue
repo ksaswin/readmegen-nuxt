@@ -2,8 +2,8 @@
   <div class='w-full flex-1'>
     <div class='w-full flex justify-between items-center'>
       <h5 class='section-header flex gap-8 items-center'>
-        <span :class='{ selected: selectedPreviewType === "PREVIEW" }' @click='selectedPreviewType = "PREVIEW"'>Preview</span>
-        <span :class='{ selected: selectedPreviewType === "RAW" }' @click='selectedPreviewType = "RAW"'>Raw</span>
+        <span class='cursor-pointer' :class='{ selected: selectedPreviewType === "PREVIEW" }' @click='selectedPreviewType = "PREVIEW"'>Preview</span>
+        <span class='cursor-pointer' :class='{ selected: selectedPreviewType === "RAW" }' @click='selectedPreviewType = "RAW"'>Raw</span>
       </h5>
 
       <div class='flex gap-4'>
@@ -18,13 +18,26 @@
       </div>
     </div>
 
-    <textarea v-if='selectedPreviewType === "RAW"' disable class='h-full w-full py-2 px-4 border-2 rounded-md resize-none border-[#313244] dark:border-[#CCD0DA]'>
+    <div
+      v-if='selectedPreviewType === "PREVIEW"'
+      v-html='marked(editorStore.allEditedRawContent)'
+      class='markdown-preview preview-border h-full w-full py-2 px-4 border-2 rounded-md'
+    >
+    </div>
+
+    <textarea
+      v-else
+      disable
+      class='preview-border h-full w-full py-2 px-4 border-2 rounded-md resize-none'
+    >
       {{ editorStore.allEditedRawContent }}
     </textarea>
   </div>
 </template>
 
 <script setup lang='ts'>
+import { marked } from 'marked';
+
 interface PreviewAction {
   id: string;
   icon: string;
@@ -59,5 +72,9 @@ function handlePreviewAction(actionId: string): void {
 <style scoped>
 .selected {
   @apply text-[#04A5E5] dark:text-[#89DCEB];
+}
+
+.preview-border {
+  @apply border-[#313244] dark:border-[#CCD0DA];
 }
 </style>

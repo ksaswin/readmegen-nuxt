@@ -13,6 +13,7 @@
     "@nuxt/ui": "^2.18.6",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@pinia/nuxt": "^0.5.5",
+    "marked": "^14.1.2",
     "nuxt": "^3.13.0",
     "nuxt-monaco-editor": "^1.2.9",
     "vue": "latest",
