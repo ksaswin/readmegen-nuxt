@@ -27,7 +27,7 @@
 
     <textarea
       v-else
-      disable
+      disabled
       class='preview-border h-full w-full py-2 px-4 border-2 rounded-md resize-none bg-transparent'
     >
       {{ editorStore.allEditedRawContent }}
