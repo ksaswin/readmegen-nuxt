@@ -18,9 +18,9 @@
       </div>
     </div>
 
-    <div class='h-full py-2 px-4 border-2 rounded-md border-[#313244] dark:border-[#CCD0DA]'>
-      Rendered text
-    </div>
+    <textarea v-if='selectedPreviewType === "RAW"' disable class='h-full w-full py-2 px-4 border-2 rounded-md resize-none border-[#313244] dark:border-[#CCD0DA]'>
+      {{ editorStore.allEditedRawContent }}
+    </textarea>
   </div>
 </template>
 
@@ -45,6 +45,8 @@ const previewActions: Array<PreviewAction> = [
     tooltipText: 'Download README.md',
   },
 ];
+
+const editorStore = useEditorStore();
 
 const selectedPreviewType = ref<PreviewType>('PREVIEW');
 
