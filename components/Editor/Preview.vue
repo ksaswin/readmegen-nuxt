@@ -68,7 +68,8 @@ function handlePreviewAction(actionId: string): void {
       editorStore.downloadMarkdownFile();
       break;
 
-    default:
+    case 'COPY':
+      editorStore.copyMarkdownToClipboard();
       break;
   }
 }

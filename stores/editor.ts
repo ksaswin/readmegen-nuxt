@@ -68,6 +68,14 @@ export const useEditorStore = defineStore('editor', {
       a.click();
     },
 
+    copyMarkdownToClipboard(): void {
+      try {
+        navigator.clipboard.writeText(this.allEditedRawContent);
+      } catch(err) {
+        alert('Sorry, unable to copy. Try again!')
+      }
+    },
+
     restoreState(): void {
       const allSections = sections.filter((s) => s.slug !== DEFAULT_SELECTION_SLUG);
       this.availableSections = allSections.map((s) => ({ ...s }));
