@@ -29,8 +29,7 @@
       v-else
       disable
       class='preview-border h-full w-full py-2 px-4 border-2 rounded-md resize-none'
-    >
-      {{ editorStore.allEditedRawContent }}
+    > {{ editorStore.allEditedRawContent }}
     </textarea>
   </div>
 </template>
@@ -64,8 +63,14 @@ const editorStore = useEditorStore();
 const selectedPreviewType = ref<PreviewType>('PREVIEW');
 
 function handlePreviewAction(actionId: string): void {
-  console.info('Action triggered:', actionId);
-  console.warn('Action handler function not implemented');
+  switch (actionId) {
+    case 'DOWNLOAD':
+      editorStore.downloadMarkdownFile();
+      break;
+
+    default:
+      break;
+  }
 }
 </script>
 

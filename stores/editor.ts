@@ -59,6 +59,15 @@ export const useEditorStore = defineStore('editor', {
       this.editingSection = this.selectedSections[index];
     },
 
+    downloadMarkdownFile(): void {
+      const blob = new Blob([this.allEditedRawContent]);
+
+      const a = document.createElement('a')
+      a.href = URL.createObjectURL(blob);
+      a.download = 'README.md';
+      a.click();
+    },
+
     restoreState(): void {
       const allSections = sections.filter((s) => s.slug !== DEFAULT_SELECTION_SLUG);
       this.availableSections = allSections.map((s) => ({ ...s }));
