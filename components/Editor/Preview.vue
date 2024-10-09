@@ -21,7 +21,7 @@
     <div
       v-if='selectedPreviewType === "PREVIEW"'
       v-html='marked(editorStore.allEditedRawContent)'
-      class='markdown-preview preview-border h-full w-full py-2 px-4 border-2 rounded-md'
+      class='markdown-preview preview-border h-full w-full py-2 px-4 border-2 rounded-md overflow-y-scroll'
     >
     </div>
 
