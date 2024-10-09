@@ -50,6 +50,16 @@ export const useEditorStore = defineStore('editor', {
       this.editingSection = this.selectedSections[sectionIndex];
     },
 
+    appendTemplateToEditingSection(template: string): void {
+      if (this.editingSection === null) {
+        console.error('Notification: Select a section to add the template');
+
+        return;
+      }
+
+      this.editingSection.markdown += template;
+    },
+
     restoreSectionMarkdown(slug: string): void {
       const originalSection = sections.find((s) => s.slug === slug);
 

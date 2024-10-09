@@ -55,6 +55,9 @@
 </template>
 
 <script setup lang='ts'>
+import { quickTemplates } from '/models/quick-templates';
+
+
 interface TemplateOption {
   id: string;
   tooltipText: string;
@@ -88,7 +91,26 @@ const mdTemplateOptions: Array<TemplateOption> = [
 const editorStore = useEditorStore();
 
 function addTemplate(optionId: string): void {
-  console.info('Adding option', optionId);
-  console.warn('Quick template not implemented');
+  let template = '';
+
+  switch (optionId) {
+    case 'CODE_BLOCK':
+      template = quickTemplates.codeBlock;
+      break;
+
+    case 'HYPER_LINK':
+      template = quickTemplates.hyperLink;
+      break;
+
+    case 'IMAGE':
+      template = quickTemplates.image;
+      break;
+
+    case 'TABLE':
+      template = quickTemplates.table;
+      break;
+  }
+
+  editorStore.appendTemplateToEditingSection(template);
 }
 </script>

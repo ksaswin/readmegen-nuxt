@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<style>
+<style lang='scss'>
 body {
   @apply bg-[#EFF1F5] dark:bg-[#1E1E2E] text-[#4C4F69] dark:text-[#CDD6F4];
 }
@@ -69,6 +69,14 @@ a {
 
   ol li {
     @apply list-decimal;
+  }
+
+  table {
+    @apply table-auto border border-collapse;
+
+    th, td {
+      @apply px-2 border border-[#BCC0CC] dark:border-[#45475A] even:bg-[#CCD0DA] dark:even:bg-[#313244];
+    }
   }
 }
 </style>
